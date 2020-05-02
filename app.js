@@ -28,8 +28,8 @@ process.on('unhandledRejection', function (reason, promise)
 var app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(express.static('./public'));
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -39,12 +39,14 @@ app.use(function(req, res, next) {
 
 consign()
 	.include('./routes')
-	.then('./config/dbConnection.js')
+	.then('./config/dbConnection.js') 
 	.then('./models')
 	.then('./repository')
 	.into(app);
 
 //app.use('/api/v1/carro', carro);
 //app.use('/api/v1/generate_uid', generate_uid);
-
+app.listen(8081, function(){
+	console.log('Servidor online');
+})
 module.exports = app;

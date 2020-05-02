@@ -11,4 +11,6 @@ router.get('/', function(req, res, next)
 	res.json({guid: strUid});
 });
 
-module.exports = router;
+module.exports = function (app) {
+	app.use('/', router);
+  }
