@@ -1,7 +1,7 @@
 class CarroModel {
 
 
-	constructor(id, marca, modelo, ano, cambio, combustivel, status, quilometragem, valor)
+	constructor(id, marca, modelo, ano, cambio, combustivel, status, quilometragem, valor, cor)
 	{
 		this.id = id;
 		this.marca = marca;
@@ -12,6 +12,7 @@ class CarroModel {
 		this.status = status;
 		this.quilometragem = quilometragem;
 		this.valor = valor;
+		this.cor = cor;
 	}
 }
 
